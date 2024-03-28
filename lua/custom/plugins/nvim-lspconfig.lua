@@ -125,7 +125,7 @@ return { -- LSP Configuration & Plugins
       tailwindcss = {
         capabilities = {},
       },
-      vuels = {
+      volar = {
         capabilities = {},
       },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -172,7 +172,7 @@ return { -- LSP Configuration & Plugins
       'rust_analyzer',
       'svelte',
       'tailwindcss',
-      'vuels',
+      'volar',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

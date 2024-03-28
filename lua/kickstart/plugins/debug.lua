@@ -44,6 +44,8 @@ return {
         'debugpy',
         'chrome-debug-adapter',
         'node-debug2-adapter',
+        'codelldb',
+        'cpptools',
       },
     }
 
