@@ -27,6 +27,8 @@ return {
       -- Set pylint to work in virtualenv
       require('lint').linters.pylint.cmd = 'python'
       require('lint').linters.pylint.args = { '-m', 'pylint', '-f', 'json' }
+      -- set up keybind to lint
+      vim.keymap.set('n', '<leader>i', lint.try_lint, { desc = 'Lint the current buffer' })
     end,
   },
 }

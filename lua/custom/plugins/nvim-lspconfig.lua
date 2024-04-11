@@ -107,6 +107,7 @@ return { -- LSP Configuration & Plugins
     local servers = {
       -- clangd = {},
       -- gopls = {},
+      gleam = {},
       pyright = {
         capabilities = {},
       },
@@ -162,7 +163,7 @@ return { -- LSP Configuration & Plugins
     --
     --  You can press `g?` for help in this menu.
     require('mason').setup()
-
+    require('lspconfig').gleam.setup {}
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
