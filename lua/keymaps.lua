@@ -33,3 +33,16 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Moving lines up and down in Normal mode
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })
+
+-- Moving lines up and down in Insert mode
+vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { silent = true })
+vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi', { silent = true })
+
+-- Moving lines up and down in Visual mode
+-- For visual mode, 'x' represents visual mode including visual line and visual block
+vim.keymap.set('x', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set('x', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })

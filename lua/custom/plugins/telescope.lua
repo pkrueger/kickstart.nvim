@@ -48,11 +48,25 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        file_ignore_patterns = {
+          '%.git/', -- Ignores the .git directory
+          'node_modules/', -- Example: Ignores node_modules directory
+          'dist/', -- Example: Ignores dist directory
+          -- '%.github/',
+        },
+        mappings = {
+          i = {
+            ['<C-h>'] = function()
+              local find_files_conf = require('telescope.builtin').find_files
+              local opts_with_hidden = {
+                hidden = true, -- This enables hidden files
+              }
+              find_files_conf(opts_with_hidden)
+            end,
+          },
+        },
+      },
       -- pickers = {}
       extensions = {
         ['ui-select'] = {

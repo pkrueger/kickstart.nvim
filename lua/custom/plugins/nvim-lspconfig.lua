@@ -95,6 +95,11 @@ return { -- LSP Configuration & Plugins
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+    -- This was supposed to work to dynamically get the package download location but it errors out
+    -- local mason_registry = require 'mason-registry'
+    -- local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+    local vue_language_server_path = '/home/pkrueger/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server'
+
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
@@ -107,7 +112,6 @@ return { -- LSP Configuration & Plugins
     local servers = {
       -- clangd = {},
       -- gopls = {},
-      gleam = {},
       pyright = {
         capabilities = {},
       },
@@ -127,6 +131,11 @@ return { -- LSP Configuration & Plugins
         capabilities = {},
       },
       volar = {
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
         capabilities = {},
       },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -136,6 +145,16 @@ return { -- LSP Configuration & Plugins
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       tsserver = {
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = vue_language_server_path,
+              languages = { 'vue' },
+            },
+          },
+        },
+        -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         capabilities = {},
       },
       --

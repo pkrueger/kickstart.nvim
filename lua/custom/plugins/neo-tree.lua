@@ -13,6 +13,6 @@ return {
     -- vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', {
     --   fg = '#F5758E',
     -- })
-    vim.keymap.set('n', '<C-n>', ':Neotree toggle float<CR>', {})
+    vim.keymap.set('n', '<C-n>', ':Neotree toggle left<CR>', {})
   end,
 }
