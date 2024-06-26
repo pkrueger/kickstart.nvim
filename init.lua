@@ -11,6 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- NOTE: nvim-tree wants the next two lines
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run

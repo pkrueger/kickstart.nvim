@@ -18,80 +18,80 @@ local extend_base = function(value)
 end
 
 return {
-  'catppuccin/nvim',
-  name = 'catppuccin',
-  priority = 1000,
-  config = function()
-    require('catppuccin').setup {
-      flavour = 'macchiato',
-      -- flavour = 'mocha',
-      -- flavour = 'frappe',
-      -- flavour = 'latte',
-      -- background = {
-      --   light = 'latte',
-      --   dark = 'macchiato',
-      -- },
-      integrations = {
-        gitsigns = true,
-        mason = true,
-        mini = {
-          enabled = true,
-          indentscope_color = '',
-        },
-        neotree = true,
-        treesitter = true,
-        telescope = {
-          enabled = true,
-        },
-      },
-      transparent_background = false,
-      color_overrides = {
-        -- latte = extend_base {
-        --   text = '#202027',
-        --   subtext1 = '#263168',
-        --   subtext0 = '#4c4f69',
-        --   overlay2 = '#737994',
-        --   overlay1 = '#838ba7',
-        --   base = '#fcfcfa',
-        --   mantle = '#EAEDF3',
-        --   crust = '#DCE0E8',
-        --   pink = '#EA7A95',
-        --   mauve = '#986794',
-        --   red = '#EC5E66',
-        --   peach = '#FF8459',
-        --   yellow = '#CAA75E',
-        --   green = '#87A35E',
-        -- },
-        frappe = extend_base {
-          text = '#fcfcfa',
-          surface2 = '#535763',
-          surface1 = '#3a3d4b',
-          surface0 = '#30303b',
-          base = '#202027',
-          mantle = '#1c1d22',
-          crust = '#171719',
-        },
-        mocha = {
-          text = '#F4CDE9',
-          subtext1 = '#DEBAD4',
-          subtext0 = '#C8A6BE',
-          overlay2 = '#B293A8',
-          overlay1 = '#9C7F92',
-          overlay0 = '#866C7D',
-          surface2 = '#705867',
-          surface1 = '#5A4551',
-          surface0 = '#44313B',
-
-          base = '#352939',
-          mantle = '#211924',
-          crust = '#1a1016',
-        },
-      },
-    }
-  end,
-  init = function()
-    vim.cmd.colorscheme 'catppuccin'
-  end,
+  -- 'catppuccin/nvim',
+  -- name = 'catppuccin',
+  -- priority = 1000,
+  -- config = function()
+  --   require('catppuccin').setup {
+  --     flavour = 'macchiato',
+  --     -- flavour = 'mocha',
+  --     -- flavour = 'frappe',
+  --     -- flavour = 'latte',
+  --     -- background = {
+  --     --   light = 'latte',
+  --     --   dark = 'macchiato',
+  --     -- },
+  --     integrations = {
+  --       gitsigns = true,
+  --       mason = true,
+  --       mini = {
+  --         enabled = true,
+  --         indentscope_color = '',
+  --       },
+  --       neotree = true,
+  --       treesitter = true,
+  --       telescope = {
+  --         enabled = true,
+  --       },
+  --     },
+  --     transparent_background = false,
+  --     color_overrides = {
+  --       -- latte = extend_base {
+  --       --   text = '#202027',
+  --       --   subtext1 = '#263168',
+  --       --   subtext0 = '#4c4f69',
+  --       --   overlay2 = '#737994',
+  --       --   overlay1 = '#838ba7',
+  --       --   base = '#fcfcfa',
+  --       --   mantle = '#EAEDF3',
+  --       --   crust = '#DCE0E8',
+  --       --   pink = '#EA7A95',
+  --       --   mauve = '#986794',
+  --       --   red = '#EC5E66',
+  --       --   peach = '#FF8459',
+  --       --   yellow = '#CAA75E',
+  --       --   green = '#87A35E',
+  --       -- },
+  --       frappe = extend_base {
+  --         text = '#fcfcfa',
+  --         surface2 = '#535763',
+  --         surface1 = '#3a3d4b',
+  --         surface0 = '#30303b',
+  --         base = '#202027',
+  --         mantle = '#1c1d22',
+  --         crust = '#171719',
+  --       },
+  --       mocha = {
+  --         text = '#F4CDE9',
+  --         subtext1 = '#DEBAD4',
+  --         subtext0 = '#C8A6BE',
+  --         overlay2 = '#B293A8',
+  --         overlay1 = '#9C7F92',
+  --         overlay0 = '#866C7D',
+  --         surface2 = '#705867',
+  --         surface1 = '#5A4551',
+  --         surface0 = '#44313B',
+  --
+  --         base = '#352939',
+  --         mantle = '#211924',
+  --         crust = '#1a1016',
+  --       },
+  --     },
+  --   }
+  -- end,
+  -- init = function()
+  --   vim.cmd.colorscheme 'catppuccin'
+  -- end,
 }
 
 -- NOTE: Default config
