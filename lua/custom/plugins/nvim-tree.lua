@@ -1,6 +1,27 @@
 return {
-  --   'nvim-tree/nvim-tree.lua',
-  --   config = function()
-  --     require('nvim-tree').setup()
-  --   end,
+  -- 'nvim-tree/nvim-tree.lua',
+  -- config = function()
+  --   require('nvim-tree').setup {
+  --     update_focused_file = {
+  --       enable = true,
+  --       update_cwd = true,
+  --     },
+  --   }
+  --
+  --   vim.keymap.set('n', '<C-n>', ':lua ToggleNvimTree()<CR>', {})
+  --
+  --   function ToggleNvimTree()
+  --     local view = require 'nvim-tree.view'
+  --     local is_open = pcall(view.get_winnr)
+  --     if is_open and view.get_winnr() ~= nil then
+  --       if vim.api.nvim_get_current_win() == view.get_winnr() then
+  --         require('nvim-tree').toggle(false, true)
+  --       else
+  --         view.focus()
+  --       end
+  --     else
+  --       require('nvim-tree').toggle(false, true)
+  --     end
+  --   end
+  -- end,
 }
