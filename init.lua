@@ -64,5 +64,17 @@ require('lazy').setup({
   },
 })
 
+-- NOTE: This is for Trouble
+vim.api.nvim_exec2(
+  [[
+  augroup TroubleHighlights
+    autocmd!
+    autocmd ColorScheme * highlight TroubleNormal guibg=NONE ctermbg=NONE
+    autocmd ColorScheme * highlight TroubleNormalNC guibg=NONE ctermbg=NONE
+  augroup END
+]],
+  {}
+)
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

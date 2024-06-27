@@ -23,6 +23,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
+    local open_with_trouble = require('trouble.sources.telescope').open
+    -- Use this to add more results without clearing the trouble list
+    local add_to_trouble = require('trouble.sources.telescope').add
+
     -- Telescope is a fuzzy finder that comes with a lot of different things that
     -- it can fuzzy find! It's more than just a "file finder", it can search
     -- many different aspects of Neovim, your workspace, LSP, and more!
@@ -64,6 +68,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
               }
               find_files_conf(opts_with_hidden)
             end,
+            ['<C-q>'] = open_with_trouble,
+          },
+          n = {
+            ['<C-q>'] = open_with_trouble,
           },
         },
       },
