@@ -68,10 +68,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
               }
               find_files_conf(opts_with_hidden)
             end,
-            ['<C-q>'] = open_with_trouble,
+            ['<C-t>'] = open_with_trouble,
           },
           n = {
-            ['<C-q>'] = open_with_trouble,
+            ['<C-t>'] = open_with_trouble,
           },
         },
       },
