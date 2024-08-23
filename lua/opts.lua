@@ -13,6 +13,24 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'cs',
+--   callback = function()
+--     vim.opt_local.tabstop = 4
+--     vim.opt_local.shiftwidth = 4
+--     vim.opt_local.softtabstop = 4
+--     vim.opt_local.expandtab = true
+--     print 'C# file detected. Set indentation to 4 spaces.'
+--
+--     -- Debug: Print current settings
+--     print 'Current settings:'
+--     print('tabstop: ' .. vim.opt_local.tabstop:get())
+--     print('shiftwidth: ' .. vim.opt_local.shiftwidth:get())
+--     print('softtabstop: ' .. vim.opt_local.softtabstop:get())
+--     print('expandtab: ' .. tostring(vim.opt_local.expandtab:get()))
+--   end,
+-- })
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
