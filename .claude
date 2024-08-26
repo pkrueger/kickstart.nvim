@@ -1,0 +1,8 @@
+.git
+.github
+.gitignore
+.stylua.toml
+LICENSE.md
+README.md
+lazy-lock.json
+.claude
