@@ -99,7 +99,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 3
 
 -- Check if termguicolors is supported and enable it
 if vim.fn.has 'termguicolors' == 1 then

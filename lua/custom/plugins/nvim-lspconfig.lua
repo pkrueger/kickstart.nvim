@@ -100,7 +100,8 @@ return { -- LSP Configuration & Plugins
     require('mason').setup()
     local mason_registry = require 'mason-registry'
     local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-    -- local vue_language_server_path = '/home/pkrueger/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server'
+    -- print out the language server path
+    -- print(vue_language_server_path)
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -139,16 +140,10 @@ return { -- LSP Configuration & Plugins
             },
           },
         },
-        capabilities = capabilities,
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
       },
       volar = {
-        init_options = {
-          vue = {
-            hybridMode = false,
-          },
-        },
-        -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-        capabilities = capabilities,
+        -- capabilities = capabilities,
       },
       tailwindcss = {
         capabilities = {},
