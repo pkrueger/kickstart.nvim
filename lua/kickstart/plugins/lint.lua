@@ -7,6 +7,9 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
+        -- yaml = { 'yamllint' },
+        -- json = { 'jsonlint' },
+        -- python = { 'flake8', 'pylint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -50,6 +53,12 @@ return {
           lint.try_lint()
         end,
       })
+
+      -- Set pylint to work in virtualenv
+      lint.linters.pylint.cmd = 'python'
+      lint.linters.pylint.args = { '-m', 'pylint', '-f', 'json' }
+      -- set up keybind to lint
+      vim.keymap.set('n', '<leader>i', lint.try_lint, { desc = 'Lint the current buffer' })
     end,
   },
 }
