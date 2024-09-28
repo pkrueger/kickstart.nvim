@@ -64,6 +64,51 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'js-debug-adapter',
+      },
+    }
+
+    dap.adapters['pwa-node'] = {
+      type = 'server',
+      host = 'localhost',
+      port = '8123',
+      executable = {
+        command = 'node',
+        args = {
+          require('mason-registry').get_package('js-debug-adapter'):get_install_path() .. '/js-debug/src/dapDebugServer.js',
+          '8123',
+        },
+      },
+    }
+
+    dap.configurations.vue = {
+      {
+        type = 'pwa-node',
+        request = 'launch',
+        name = 'Launch Nuxt 3',
+        cwd = '${workspaceFolder}',
+        runtimeExecutable = 'bun',
+        runtimeArgs = { 'dev' },
+        sourceMaps = true,
+        protocol = 'inspector',
+        console = 'integratedTerminal',
+        port = 9229,
+      },
+    }
+
+    -- Also add typescript configuration for .ts files in the Nuxt project
+    dap.configurations.typescript = {
+      {
+        type = 'pwa-node',
+        request = 'launch',
+        name = 'Debug Nuxt 3 TypeScript',
+        cwd = '${workspaceFolder}',
+        runtimeExecutable = 'bun',
+        runtimeArgs = { 'dev' },
+        sourceMaps = true,
+        protocol = 'inspector',
+        console = 'integratedTerminal',
+        port = 9229,
       },
     }
 
