@@ -46,3 +46,13 @@ vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi', { silent = true })
 -- For visual mode, 'x' represents visual mode including visual line and visual block
 vim.keymap.set('x', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('x', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
+
+-- Flutter-specific keymaps
+vim.keymap.set('n', '<leader>fa', ':FlutterRun<CR>', { desc = 'Flutter Run' })
+vim.keymap.set('n', '<leader>fq', ':FlutterQuit<CR>', { desc = 'Flutter Quit' })
+vim.keymap.set('n', '<leader>fr', ':FlutterHotReload<CR>', { desc = 'Flutter Hot Reload' })
+vim.keymap.set('n', '<leader>fR', ':FlutterRestart<CR>', { desc = 'Flutter Hot Restart' })
+vim.keymap.set('n', '<leader>fd', ':FlutterDevices<CR>', { desc = 'Flutter Devices' })
+vim.keymap.set('n', '<leader>fe', ':FlutterEmulators<CR>', { desc = 'Flutter Emulators' })
+vim.keymap.set('n', '<leader>fo', ':FlutterOutlineToggle<CR>', { desc = 'Flutter Outline Toggle' })
+vim.keymap.set('n', '<leader>fs', ':FlutterDevTools<CR>', { desc = 'Flutter Dev Tools' })
