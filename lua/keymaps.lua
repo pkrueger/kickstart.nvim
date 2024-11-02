@@ -35,8 +35,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Moving lines up and down in Normal mode
--- vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { silent = true })
--- vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })
 
 -- Moving lines up and down in Insert mode
 vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { silent = true })
