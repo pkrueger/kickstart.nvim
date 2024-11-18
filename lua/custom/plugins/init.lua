@@ -2,4 +2,32 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'p00f/clangd_extensions.nvim',
+    lazy = true,
+    config = function()
+      require('clangd_extensions').setup()
+    end,
+  },
+  {
+    'Hoffs/omnisharp-extended-lsp.nvim',
+    lazy = true,
+  },
+  {
+    'chipsenkbeil/distant.nvim',
+    branch = 'v0.3',
+    config = function()
+      require('distant'):setup {
+        ['*'] = {
+          mode = 'ssh',
+          ssh = {
+            -- You'll need to update these values
+            user = 'your-windows-username',
+            host = 'your-azure-host',
+          },
+        },
+      }
+    end,
+  },
+}

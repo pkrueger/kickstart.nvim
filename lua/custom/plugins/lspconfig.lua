@@ -198,6 +198,25 @@ return {
           },
         },
       },
+      clangd = {
+        capabilities = {
+          offsetEncoding = { 'utf-16' },
+        },
+        cmd = {
+          'clangd',
+          '--background-index',
+          '--clang-tidy',
+          '--header-insertion=iwyu',
+          '--completion-style=detailed',
+          '--function-arg-placeholders',
+        },
+      },
+      omnisharp = {
+        cmd = { 'omnisharp' },
+        enable_roslyn_analyzers = true,
+        organize_imports_on_format = true,
+        enable_import_completion = true,
+      },
     }
 
     -- Ensure the servers and tools above are installed
@@ -217,6 +236,11 @@ return {
       'black',
       'prettierd',
       'prettier',
+      'clangd', -- C++ language server
+      'clang-format', -- C++ formatter
+      'omnisharp', -- C# language server
+      'csharpier', -- C# formatter
+      'codelldb', -- Debugger
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

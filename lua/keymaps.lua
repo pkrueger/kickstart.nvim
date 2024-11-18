@@ -56,3 +56,11 @@ vim.keymap.set('n', '<leader>fd', ':FlutterDevices<CR>', { desc = 'Flutter Devic
 vim.keymap.set('n', '<leader>fe', ':FlutterEmulators<CR>', { desc = 'Flutter Emulators' })
 vim.keymap.set('n', '<leader>fo', ':FlutterOutlineToggle<CR>', { desc = 'Flutter Outline Toggle' })
 vim.keymap.set('n', '<leader>fs', ':FlutterDevTools<CR>', { desc = 'Flutter Dev Tools' })
+
+vim.keymap.set('n', '<leader>rc', function()
+  vim.cmd 'DistantConnect ssh://your-windows-username@your-azure-host'
+end, { desc = 'Connect to remote host' })
+
+vim.keymap.set('n', '<leader>ro', function()
+  vim.cmd 'DistantOpen C:/your/project/path'
+end, { desc = 'Open remote directory' })

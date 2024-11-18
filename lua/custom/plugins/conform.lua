@@ -40,6 +40,9 @@ return { -- Autoformat
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       vue = { 'prettierd', 'prettier', stop_after_first = true },
       svelte = { 'prettierd', 'prettier', stop_after_first = true },
+      cpp = { 'clang-format' },
+      c = { 'clang-format' },
+      cs = { 'csharpier' },
     },
   },
 }
