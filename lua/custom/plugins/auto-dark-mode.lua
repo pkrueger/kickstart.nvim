@@ -1,6 +1,6 @@
 return {
-  'f-person/auto-dark-mode.nvim',
-  opts = {
-    update_interval = 3000,
-  },
+  -- 'f-person/auto-dark-mode.nvim',
+  -- opts = {
+  --   update_interval = 3000,
+  -- },
 }

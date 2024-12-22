@@ -11,3 +11,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('Signal', {
+  pattern = 'SIGUSR1',
+  callback = function()
+    require('custom.plugins.rose-pine').config()
+    require('custom.plugins.lualine').config()
+  end,
+})

@@ -2,10 +2,10 @@ return {
   'rose-pine/neovim',
   name = 'rose-pine',
   config = function()
+    IS_DARK_MODE = string.find(vim.fn.system 'gsettings get org.gnome.desktop.interface color-scheme', 'dark') ~= nil
     require('rose-pine').setup {
-      -- set vim background based on Mac OS appearance
-      variant = 'auto', -- auto, main, moon, or dawn
-      dark_variant = 'moon', -- main, moon, or dawn
+      variant = IS_DARK_MODE and 'moon' or 'dawn', -- auto, main, moon, or dawn
+      -- dark_variant = 'moon', -- main, moon, or dawn
       dim_inactive_windows = false,
       extend_background_behind_borders = true,
 
