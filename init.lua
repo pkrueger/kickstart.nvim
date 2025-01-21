@@ -63,5 +63,26 @@ vim.api.nvim_exec2(
   {}
 )
 
+-- NOTE: Setting titles for better naming in Ghostty
+vim.opt.title = true
+local function set_title()
+  -- Get the current directory
+  local cwd = vim.fn.getcwd()
+  -- Extract just the last directory name
+  local dir_name = vim.fn.fnamemodify(cwd, ':t')
+  -- Set the title
+  vim.opt.titlestring = dir_name .. ' - nvim'
+end
+
+-- Set the title when Neovim starts
+set_title()
+
+-- Optional: Update title when directory changes
+vim.api.nvim_create_autocmd({ 'DirChanged' }, {
+  callback = function()
+    set_title()
+  end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
