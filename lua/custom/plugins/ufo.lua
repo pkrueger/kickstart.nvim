@@ -14,7 +14,7 @@ return {
       dynamicRegistration = false,
       lineFoldingOnly = true,
     }
-    local language_servers = require('lspconfig').util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+    local language_servers = require('lspconfig').util._available_servers() -- or list servers manually like {'gopls', 'clangd'}
     for _, ls in ipairs(language_servers) do
       require('lspconfig')[ls].setup {
         capabilities = capabilities,
@@ -58,11 +58,12 @@ return {
 
     -- TODO: Figure this out
     require('ufo').setup {
+      enable_get_fold_virt_text = true,
       fold_virt_text_handler = handler,
       open_fold_hl_timeout = 150,
       close_fold_kinds_for_ft = {
         default = { 'imports', 'comment' },
-        json = { 'array' },
+        json = { 'marker' },
         c = { 'comment', 'region' },
       },
       preview = {

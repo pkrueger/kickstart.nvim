@@ -34,7 +34,8 @@ return {
         -- see |:help dap.set_exception_breakpoints()| for more info
         exception_breakpoints = {},
       },
-      flutter_path = '/Users/pkrueger/development/flutter/bin/flutter', -- <-- PUT YOUR FLUTTER SDK PATH HERE
+      -- flutter_path = '/Users/pkrueger/development/flutter/bin/flutter', -- <-- PUT YOUR FLUTTER SDK PATH HERE (Mac Version)
+      flutter_path = '/usr/bin/flutter', -- <-- PUT YOUR FLUTTER SDK PATH HERE (Linux Version)
       flutter_lookup_cmd = nil, -- example "dirname $(which flutter)" or "asdf where flutter"
       fvm = false, -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
       widget_guides = {
