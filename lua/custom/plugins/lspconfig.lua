@@ -142,11 +142,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-    -- WARNING: This was supposed to work to dynamically get the package download location but it errors out
-    require('mason').setup()
-    local mason_registry = require 'mason-registry'
-    local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
@@ -160,29 +155,25 @@ return {
       -- gleam = {},
       pyright = {},
       rust_analyzer = {},
+      volar = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
-      -- ts_ls = {
-      --   init_options = {
-      --     plugins = {
-      --       name = '@vue/typescript-plugin',
-      --       location = vue_language_server_path,
-      --       languages = { 'vue' },
-      --     },
-      --   },
-      --   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-      -- },
-      -- volar = {
-      --   init_options = {
-      --     vue = {
-      --       hybridMode = false,
-      --     },
-      --   },
-      -- },
+      ts_ls = {
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+              languages = { 'vue' },
+            },
+          },
+        },
+      },
       tailwindcss = {},
       lua_ls = {
         -- cmd = {...},
@@ -211,13 +202,13 @@ return {
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
-      'isort',
-      'black',
-      'prettierd',
-      'prettier',
-    })
+    -- vim.list_extend(ensure_installed, {
+    --   'stylua', -- Used to format Lua code
+    --   'isort',
+    --   'black',
+    --   'prettierd',
+    --   'prettier',
+    -- })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
@@ -225,25 +216,7 @@ return {
         function(server_name)
           local server = servers[server_name] or {}
           local lsp = require 'lspconfig'
-          lsp.ts_ls.setup {
-            init_options = {
-              plugins = {
-                {
-                  name = '@vue/typescript-plugin',
-                  location = vue_language_server_path,
-                  languages = { 'vue' },
-                },
-              },
-            },
-          }
 
-          lsp.volar.setup {
-            init_options = {
-              vue = {
-                hybridMode = false,
-              },
-            },
-          }
           -- This handles overriding only values explicitly passed
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for ts_ls)
@@ -251,6 +224,8 @@ return {
           lsp[server_name].setup(server)
         end,
       },
+      ensure_installed = ensure_installed,
+      automatic_installation = true,
     }
   end,
 }

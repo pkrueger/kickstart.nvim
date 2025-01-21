@@ -1,3 +1,4 @@
+-- TODO: Figure this out
 return {
   'kevinhwang91/nvim-ufo',
   dependencies = {
@@ -14,13 +15,15 @@ return {
       dynamicRegistration = false,
       lineFoldingOnly = true,
     }
-    local language_servers = require('lspconfig').util._available_servers() -- or list servers manually like {'gopls', 'clangd'}
-    for _, ls in ipairs(language_servers) do
-      require('lspconfig')[ls].setup {
-        capabilities = capabilities,
-        -- you can add other fields for setting up lsp server in this table
-      }
-    end
+
+    -- WARNING: This breaks volar and ts_ls
+    -- local language_servers = require('lspconfig').util._available_servers() -- or list servers manually like {'gopls', 'clangd'}
+    -- for _, ls in ipairs(language_servers) do
+    --   require('lspconfig')[ls].setup {
+    --     capabilities = capabilities,
+    --     -- you can add other fields for setting up lsp server in this table
+    --   }
+    -- end
 
     local handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
@@ -56,7 +59,6 @@ return {
       git = '',
     }
 
-    -- TODO: Figure this out
     require('ufo').setup {
       enable_get_fold_virt_text = true,
       fold_virt_text_handler = handler,
