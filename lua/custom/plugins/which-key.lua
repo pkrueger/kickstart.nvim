@@ -50,6 +50,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>u', group = 'DB[U]I' },
+      { '<leader>o', group = 'Tr[O]uble' },
     },
   },
 }

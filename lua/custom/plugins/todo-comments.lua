@@ -3,6 +3,10 @@ return {
   'folke/todo-comments.nvim',
   event = 'VimEnter',
   dependencies = { 'nvim-lua/plenary.nvim' },
+  keys = {
+    { '<leader>st', '<cmd>TodoTelescope<CR>', desc = '[S]earch [T]odo comments' },
+    { '<leader>ot', '<cmd>TodoTrouble<CR>', desc = 'Todo comments (Trouble)' },
+  },
   opts = {
     signs = true,
     keywords = {
