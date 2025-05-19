@@ -13,8 +13,19 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
+  ---@module "neo-tree"
+  ---@type neotree.Config?
   opts = {
+    close_if_last_window = false,
+    window = {
+      position = 'right',
+      width = 25,
+    },
     filesystem = {
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = true,
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
