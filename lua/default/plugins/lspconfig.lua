@@ -194,7 +194,8 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-    local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
+    local mason_path = vim.fn.stdpath 'data' .. '/mason'
+    local vue_language_server_path = mason_path .. '/packages/vue-language-server/node_modules/@vue/language-server'
 
     local servers = {
       -- clangd = {},
