@@ -12,12 +12,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- NOTE: I believe this has something to do with auto theme switching
--- TODO: add this back in with rose pine theme
--- vim.api.nvim_create_autocmd('Signal', {
---   pattern = 'SIGUSR1',
---   callback = function()
---     require('custom.plugins.rose-pine').config()
---     require('custom.plugins.lualine').config()
---   end,
--- })
+-- NOTE: This receives a notification from a computer script and changes the theme
+vim.api.nvim_create_autocmd('Signal', {
+  pattern = 'SIGUSR1',
+  callback = function()
+    require('custom.plugins.rose-pine').config()
+    -- require('custom.plugins.lualine').config()
+  end,
+})
